@@ -2,156 +2,17 @@
 <html lang="nl">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Love Language Quiz ❤️</title>
-
-<style>
-body {
-    font-family: Arial, sans-serif;
-    background: linear-gradient(135deg,#ff758c,#ff7eb3);
-    margin: 0;
-    padding: 20px;
-}
-
-.container {
-    max-width: 900px;
-    margin: auto;
-    background: white;
-    padding: 30px;
-    border-radius: 20px;
-    box-shadow: 0 5px 20px rgba(0,0,0,0.15);
-}
-
-h1 {
-    text-align: center;
-    color: #e91e63;
-}
-
-.question {
-    background: #fafafa;
-    padding: 15px;
-    margin-bottom: 20px;
-    border-radius: 12px;
-}
-
-label {
-    display: block;
-    margin: 8px 0;
-    cursor: pointer;
-}
-
-button {
-    width: 100%;
-    padding: 15px;
-    border: none;
-    border-radius: 12px;
-    background: #e91e63;
-    color: white;
-    font-size: 18px;
-    cursor: pointer;
-}
-
-button:hover {
-    background: #d81b60;
-}
-
-#result {
-    display: none;
-    margin-top: 20px;
-    padding: 20px;
-    background: #ffe6ef;
-    border-radius: 12px;
-}
-</style>
+<title>Quiz Test</title>
 </head>
 <body>
 
-<div class="container">
-<h1>❤️ Love Language Quiz ❤️</h1>
+<h1>Love Language Quiz</h1>
 
-<p>Kies bij iedere vraag het antwoord dat het beste bij je past.</p>
+<p>1. Wat vind je het fijnst?</p>
 
-<form id="quiz"></form>
+<label><input type="radio" name="q1"> Een compliment</label><br>
+<label><input type="radio" name="q1"> Samen tijd doorbrengen</label><br>
+<label><input type="radio" name="q1"> Een cadeautje</label><br>
 
-<button type="button" onclick="berekenQuiz()">
-Bekijk mijn liefdestaal ❤️
-</button>
-
-<div id="result"></div>
-
-</div>
-
-<script>
-
-const vragen = [
-"Wat waardeer je het meest van je partner?",
-"Wanneer voel je je het meest geliefd?",
-"Wat mis je het meest als je partner weg is?",
-"Welke verrassing zou jou het blijst maken?",
-"Wat raakt je het meest?",
-"Hoe toon jij meestal liefde?",
-"Wat zou je liever ontvangen?",
-"Wat maakt een slechte dag beter?",
-"Welke herinnering vind je het meest romantisch?",
-"Wat waardeer je het meest op je verjaardag?",
-"Wat mis je het eerst wanneer je partner druk is?",
-"Wat voelt als echte liefde?",
-"Wat doe je het liefst na een lange werkdag?",
-"Wanneer voel je de sterkste verbinding?",
-"Wat maakt je het meest blij?",
-"Wat vind je romantischer?",
-"Hoe voel je je het meest gewaardeerd?",
-"Wat zou je partner vaker mogen doen?",
-"Wat geeft je een veilig gevoel?",
-"Je ideale romantische avond bestaat uit?"
-];
-
-const antwoorden = [
-["💬 Een oprecht compliment","woorden"],
-["⏰ Een avond samen zonder afleiding","tijd"],
-["🎁 Een onverwacht cadeautje","cadeaus"],
-["🤝 Hulp bij iets moeilijks","dienstbaarheid"],
-["❤️ Een warme knuffel","aanraking"]
-];
-
-const quiz = document.getElementById("quiz");
-
-vragen.forEach((vraag,index) => {
-
-    let html = `
-    <div class="question">
-        <h3>${index+1}. ${vraag}</h3>
-    `;
-
-    antwoorden.forEach(antwoord => {
-        html += `
-        <label>
-            <input type="radio"
-                   name="q${index}"
-                   value="${antwoord[1]}">
-            ${antwoord[0]}
-        </label>
-        `;
-    });
-
-    html += `</div>`;
-
-    quiz.innerHTML += html;
-});
-
-function berekenQuiz() {
-
-    const scores = {
-        woorden:0,
-        tijd:0,
-        cadeaus:0,
-        dienstbaarheid:0,
-        aanraking:0
-    };
-
-    for(let i=0;i<vragen.length;i++){
-
-        const keuze = document.querySelector(`input[name="q${i}"]:checked`);
-
-        if(!keuze){
-            alert("Beantwoord
+</body>
+</html>
