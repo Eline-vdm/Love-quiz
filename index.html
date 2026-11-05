@@ -2,17 +2,99 @@
 <html lang="nl">
 <head>
 <meta charset="UTF-8">
-<title>Quiz Test</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Liefdestaal Quiz</title>
+
+<style>
+body{
+  font-family: Arial, sans-serif;
+  max-width: 700px;
+  margin: 40px auto;
+  padding: 20px;
+}
+
+.question{
+  margin-bottom:20px;
+}
+
+button{
+  padding:10px 20px;
+  font-size:16px;
+}
+
+#result{
+  margin-top:20px;
+  font-weight:bold;
+}
+</style>
 </head>
 <body>
 
-<h1>Love Language Quiz</h1>
+<h1>❤️ Liefdestaal Quiz</h1>
 
-<p>1. Wat vind je het fijnst?</p>
+<div class="question">
+<h3>1. Wat vind je het fijnst?</h3>
+<label><input type="radio" name="q1" value="woorden"> Een compliment</label><br>
+<label><input type="radio" name="q1" value="tijd"> Samen tijd doorbrengen</label><br>
+<label><input type="radio" name="q1" value="aanraking"> Een knuffel</label>
+</div>
 
-<label><input type="radio" name="q1"> Een compliment</label><br>
-<label><input type="radio" name="q1"> Samen tijd doorbrengen</label><br>
-<label><input type="radio" name="q1"> Een cadeautje</label><br>
+<div class="question">
+<h3>2. Wat mis je het meest?</h3>
+<label><input type="radio" name="q2" value="woorden"> Lieve berichtjes</label><br>
+<label><input type="radio" name="q2" value="tijd"> Samenzijn</label><br>
+<label><input type="radio" name="q2" value="aanraking"> Knuffels</label>
+</div>
+
+<div class="question">
+<h3>3. Wanneer voel je je geliefd?</h3>
+<label><input type="radio" name="q3" value="woorden"> Door lieve woorden</label><br>
+<label><input type="radio" name="q3" value="tijd"> Door aandacht</label><br>
+<label><input type="radio" name="q3" value="aanraking"> Door aanraking</label>
+</div>
+
+<button onclick="bereken()">Bekijk resultaat</button>
+
+<div id="result"></div>
+
+<script>
+function bereken(){
+
+let woorden = 0;
+let tijd = 0;
+let aanraking = 0;
+
+for(let i=1;i<=3;i++){
+
+let keuze = document.querySelector(
+'input[name="q'+i+'"]:checked'
+);
+
+if(!keuze){
+alert("Beantwoord eerst alle vragen");
+return;
+}
+
+if(keuze.value==="woorden") woorden++;
+if(keuze.value==="tijd") tijd++;
+if(keuze.value==="aanraking") aanraking++;
+}
+
+let resultaat = "";
+
+if(woorden >= tijd && woorden >= aanraking){
+resultaat = "💬 Jouw liefdestaal is Woorden van Waardering";
+}
+else if(tijd >= woorden && tijd >= aanraking){
+resultaat = "⏰ Jouw liefdestaal is Quality Time";
+}
+else{
+resultaat = "❤️ Jouw liefdestaal is Lichamelijke Aanraking";
+}
+
+document.getElementById("result").innerHTML = resultaat;
+}
+</script>
 
 </body>
 </html>
